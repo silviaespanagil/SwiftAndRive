@@ -14,6 +14,13 @@
 		A7159AFA2BBED915005D3426 /* AnimationsRiveTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7159AF92BBED915005D3426 /* AnimationsRiveTests.swift */; };
 		A7159B042BBED915005D3426 /* AnimationsRiveUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7159B032BBED915005D3426 /* AnimationsRiveUITests.swift */; };
 		A7159B062BBED915005D3426 /* AnimationsRiveUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A7159B052BBED915005D3426 /* AnimationsRiveUITestsLaunchTests.swift */; };
+		A7159B1A2BBEDE82005D3426 /* button.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B122BBEDE82005D3426 /* button.riv */; };
+		A7159B1B2BBEDE82005D3426 /* check.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B132BBEDE82005D3426 /* check.riv */; };
+		A7159B1C2BBEDE82005D3426 /* confetti.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B142BBEDE82005D3426 /* confetti.riv */; };
+		A7159B1D2BBEDE82005D3426 /* house.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B152BBEDE82005D3426 /* house.riv */; };
+		A7159B1E2BBEDE82005D3426 /* icons.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B162BBEDE82005D3426 /* icons.riv */; };
+		A7159B1F2BBEDE82005D3426 /* menu_button.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B172BBEDE82005D3426 /* menu_button.riv */; };
+		A7159B202BBEDE82005D3426 /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B182BBEDE82005D3426 /* shapes.riv */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		A7159AFF2BBED915005D3426 /* AnimationsRiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AnimationsRiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A7159B032BBED915005D3426 /* AnimationsRiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsRiveUITests.swift; sourceTree = "<group>"; };
 		A7159B052BBED915005D3426 /* AnimationsRiveUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimationsRiveUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A7159B122BBEDE82005D3426 /* button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = button.riv; sourceTree = "<group>"; };
+		A7159B132BBEDE82005D3426 /* check.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = check.riv; sourceTree = "<group>"; };
+		A7159B142BBEDE82005D3426 /* confetti.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = confetti.riv; sourceTree = "<group>"; };
+		A7159B152BBEDE82005D3426 /* house.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = house.riv; sourceTree = "<group>"; };
+		A7159B162BBEDE82005D3426 /* icons.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = icons.riv; sourceTree = "<group>"; };
+		A7159B172BBEDE82005D3426 /* menu_button.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = menu_button.riv; sourceTree = "<group>"; };
+		A7159B182BBEDE82005D3426 /* shapes.riv */ = {isa = PBXFileReference; lastKnownFileType = file; path = shapes.riv; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +111,7 @@
 				A7159AE82BBED912005D3426 /* AnimationsRiveApp.swift */,
 				A7159AEA2BBED912005D3426 /* ContentView.swift */,
 				A7159AEC2BBED915005D3426 /* Assets.xcassets */,
+				A7159B192BBEDE82005D3426 /* RiveAssets */,
 				A7159AEE2BBED915005D3426 /* Preview Content */,
 			);
 			path = AnimationsRive;
@@ -125,6 +140,20 @@
 				A7159B052BBED915005D3426 /* AnimationsRiveUITestsLaunchTests.swift */,
 			);
 			path = AnimationsRiveUITests;
+			sourceTree = "<group>";
+		};
+		A7159B192BBEDE82005D3426 /* RiveAssets */ = {
+			isa = PBXGroup;
+			children = (
+				A7159B122BBEDE82005D3426 /* button.riv */,
+				A7159B132BBEDE82005D3426 /* check.riv */,
+				A7159B142BBEDE82005D3426 /* confetti.riv */,
+				A7159B152BBEDE82005D3426 /* house.riv */,
+				A7159B162BBEDE82005D3426 /* icons.riv */,
+				A7159B172BBEDE82005D3426 /* menu_button.riv */,
+				A7159B182BBEDE82005D3426 /* shapes.riv */,
+			);
+			path = RiveAssets;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -231,8 +260,15 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7159B1A2BBEDE82005D3426 /* button.riv in Resources */,
 				A7159AF02BBED915005D3426 /* Preview Assets.xcassets in Resources */,
+				A7159B1E2BBEDE82005D3426 /* icons.riv in Resources */,
+				A7159B1B2BBEDE82005D3426 /* check.riv in Resources */,
+				A7159B202BBEDE82005D3426 /* shapes.riv in Resources */,
 				A7159AED2BBED915005D3426 /* Assets.xcassets in Resources */,
+				A7159B1D2BBEDE82005D3426 /* house.riv in Resources */,
+				A7159B1F2BBEDE82005D3426 /* menu_button.riv in Resources */,
+				A7159B1C2BBEDE82005D3426 /* confetti.riv in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
