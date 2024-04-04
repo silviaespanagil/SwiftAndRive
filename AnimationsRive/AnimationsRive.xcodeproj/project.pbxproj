@@ -21,6 +21,7 @@
 		A7159B1E2BBEDE82005D3426 /* icons.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B162BBEDE82005D3426 /* icons.riv */; };
 		A7159B1F2BBEDE82005D3426 /* menu_button.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B172BBEDE82005D3426 /* menu_button.riv */; };
 		A7159B202BBEDE82005D3426 /* shapes.riv in Resources */ = {isa = PBXBuildFile; fileRef = A7159B182BBEDE82005D3426 /* shapes.riv */; };
+		A7159B232BBEDF3D005D3426 /* RiveRuntime in Frameworks */ = {isa = PBXBuildFile; productRef = A7159B222BBEDF3D005D3426 /* RiveRuntime */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,6 +66,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A7159B232BBEDF3D005D3426 /* RiveRuntime in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -172,6 +174,9 @@
 			dependencies = (
 			);
 			name = AnimationsRive;
+			packageProductDependencies = (
+				A7159B222BBEDF3D005D3426 /* RiveRuntime */,
+			);
 			productName = AnimationsRive;
 			productReference = A7159AE52BBED912005D3426 /* AnimationsRive.app */;
 			productType = "com.apple.product-type.application";
@@ -244,6 +249,9 @@
 				Base,
 			);
 			mainGroup = A7159ADC2BBED912005D3426;
+			packageReferences = (
+				A7159B212BBEDF3D005D3426 /* XCRemoteSwiftPackageReference "rive-ios" */,
+			);
 			productRefGroup = A7159AE62BBED912005D3426 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -624,6 +632,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A7159B212BBEDF3D005D3426 /* XCRemoteSwiftPackageReference "rive-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/rive-app/rive-ios.git";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A7159B222BBEDF3D005D3426 /* RiveRuntime */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A7159B212BBEDF3D005D3426 /* XCRemoteSwiftPackageReference "rive-ios" */;
+			productName = RiveRuntime;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A7159ADD2BBED912005D3426 /* Project object */;
 }
