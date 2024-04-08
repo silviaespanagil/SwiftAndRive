@@ -10,6 +10,8 @@ import RiveRuntime
 
 struct OnboardingView: View {
     
+    @State var showLoginModal: Bool = false
+    
     let button = RiveViewModel(fileName: "button")
     
     var body: some View {
@@ -18,21 +20,36 @@ struct OnboardingView: View {
             
             background
             
-            VStack(alignment: .leading, spacing: 16) {
+            content
+            
+            Color("Shadow")
+                .opacity(showLoginModal ? 0.4 : 0)
+                .ignoresSafeArea()
+            
+            if showLoginModal {
                 
-                Spacer().frame(height: 40)
-                
-                titleArea
-                
-                Spacer()
-                
-                enterButton
-                
-                captionText
-                
-                Spacer().frame(height: 16)
+                signInModalView
             }
         }
+    }
+    
+    @ViewBuilder
+    var content: some View {
+        
+        VStack(alignment: .leading, spacing: 16) {
+            
+            Spacer().frame(height: 40)
+            
+            titleArea
+            
+            Spacer()
+            
+            enterButton
+            
+            captionText
+            
+            Spacer().frame(height: 16)
+        }.opacity(showLoginModal ? 0 : 1)
     }
     
     @ViewBuilder
@@ -65,9 +82,9 @@ struct OnboardingView: View {
         button.view()
             .frame(width: 235, height: 54)
             .overlay(
-            Label("Start the course", systemImage: "arrow.forward")
-                .offset(x: 4, y: 4)
-                .font(.headline)
+                Label("Start the course", systemImage: "arrow.forward")
+                    .offset(x: 4, y: 4)
+                    .font(.headline)
             )
             .background(
                 Color.black
@@ -78,6 +95,13 @@ struct OnboardingView: View {
             )
             .onTapGesture {
                 button.play(animationName: "active")
+                
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.8) {
+                    withAnimation(.spring()) {
+                        
+                        showLoginModal = true
+                    }
+                }
             }
     }
     
@@ -88,6 +112,26 @@ struct OnboardingView: View {
             .customFont(.footnote)
             .opacity(0.7)
             .padding(.horizontal, 16)
+    }
+    
+    @ViewBuilder
+    var signInModalView: some View {
+        
+        SignInView()
+            .transition(.move(edge: .top).combined(with: .opacity))
+            .overlay(
+                Button {
+                    withAnimation(.spring()) {
+                        showLoginModal = false
+                    }
+                } label: {
+                    Image(systemName: "xmark")
+                        .frame(width: 36, height: 36)
+                        .foregroundColor(.black)
+                        .background(.white)
+                        .mask(Circle())
+                        .shadow(color: Color("shadow").opacity(0.3), radius: 5, x: 0, y: 3)
+                }.frame(maxHeight: .infinity, alignment: .bottom))
     }
 }
 
