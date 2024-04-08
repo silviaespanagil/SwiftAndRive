@@ -28,7 +28,7 @@ struct SignInView: View {
             .mask(RoundedRectangle(cornerRadius: 20, style: .continuous))
             .shadow(color: Color("Shadow").opacity(0.3), radius: 5, x: 0, y: 3)
             .shadow(color: Color("Shadow").opacity(0.3), radius: 30, x: 0, y: 30)
-            .padding(.horizontal, 16)
+            .padding(16)
     }
     
     @ViewBuilder
@@ -102,7 +102,7 @@ struct SignInView: View {
                 Image("Logo Apple")
                 Spacer()
                 Image("Logo Google")
-            }
+            }.padding(.bottom, 16)
         }
     }
 }
