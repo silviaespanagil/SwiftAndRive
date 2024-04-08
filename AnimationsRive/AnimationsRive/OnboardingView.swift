@@ -117,7 +117,7 @@ struct OnboardingView: View {
     @ViewBuilder
     var signInModalView: some View {
         
-        SignInView()
+        SignInView(showLoginModal: $showLoginModal)
             .transition(.move(edge: .top).combined(with: .opacity))
             .overlay(
                 Button {
