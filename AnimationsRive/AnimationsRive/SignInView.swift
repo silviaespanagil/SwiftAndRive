@@ -6,11 +6,18 @@
 //
 
 import SwiftUI
+import RiveRuntime
 
 struct SignInView: View {
     
+    @Binding var showLoginModal: Bool
+    
     @State var userEmail = ""
     @State var userPassword = ""
+    @State var isLoading = false
+    
+    let loadingAnimation = RiveViewModel(fileName: "check", stateMachineName: "State Machine 1")
+    let confettiAnimation = RiveViewModel(fileName: "confetti", stateMachineName: "State Machine 1")
     
     var body: some View {
         
@@ -29,6 +36,7 @@ struct SignInView: View {
             .shadow(color: Color("Shadow").opacity(0.3), radius: 5, x: 0, y: 3)
             .shadow(color: Color("Shadow").opacity(0.3), radius: 30, x: 0, y: 30)
             .padding(16)
+            .overlay(successMark)
     }
     
     @ViewBuilder
@@ -70,14 +78,19 @@ struct SignInView: View {
     @ViewBuilder
     var loginButton: some View {
         
-        Label("Sign in", systemImage: "arrow.right")
-            .customFont(.headline)
-            .padding(20)
-            .frame(maxWidth: .infinity)
-            .background(Color(hex: "F77D8E"))
-            .foregroundColor(.white)
-            .cornerRadius(20, corners: [.topRight, .bottomLeft, .bottomRight])
-            .shadow(color:Color(hex: "F77D8E").opacity(0.5), radius: 10, x:0, y: 8)
+        Button {
+            setOnLogIn()
+        } label: {
+            
+            Label("Sign in", systemImage: "arrow.right")
+                .customFont(.headline)
+                .padding(20)
+                .frame(maxWidth: .infinity)
+                .background(Color(hex: "F77D8E"))
+                .foregroundColor(.white)
+                .cornerRadius(20, corners: [.topRight, .bottomLeft, .bottomRight])
+                .shadow(color:Color(hex: "F77D8E").opacity(0.5), radius: 10, x:0, y: 8)
+        }
     }
     
     @ViewBuilder
@@ -105,8 +118,53 @@ struct SignInView: View {
             }.padding(.bottom, 16)
         }
     }
+    
+    @ViewBuilder
+    var successMark: some View {
+        ZStack {
+            if isLoading {
+                loadingAnimation.view()
+                    .frame(width: 100, height: 100)
+                    .allowsHitTesting(false)
+            }
+            confettiAnimation.view()
+                .scaleEffect(3)
+                .allowsHitTesting(false)
+        }
+    }
+}
+
+extension SignInView {
+    
+    func setOnLogIn() {
+        
+        isLoading = true
+        
+        if userEmail != "" && userPassword != "" {
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                loadingAnimation.triggerInput("Check")
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+                isLoading = false
+                confettiAnimation.triggerInput("Trigger explosion")
+            }
+            
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                
+                withAnimation {
+                    showLoginModal = false
+                }
+            }
+        } else {
+            DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
+                loadingAnimation.triggerInput("Error")
+            }
+        }
+    }
 }
 
 #Preview {
-    SignInView()
+    SignInView(showLoginModal: .constant(true))
 }
