@@ -37,6 +37,7 @@ struct SignInView: View {
             .shadow(color: Color("Shadow").opacity(0.3), radius: 30, x: 0, y: 30)
             .padding(16)
             .overlay(successMark)
+            .disabled(isLoading)
     }
     
     @ViewBuilder
@@ -62,6 +63,7 @@ struct SignInView: View {
                 .foregroundColor(.secondary)
             
             TextField("", text: $userEmail)
+                .padding(.leading, 40)
                 .customTextField(iconImage: "Icon Email")
             
             Spacer().frame(height: 24)
@@ -160,6 +162,9 @@ extension SignInView {
         } else {
             DispatchQueue.main.asyncAfter(deadline: .now() + 1) {
                 loadingAnimation.triggerInput("Error")
+            }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+                isLoading = false
             }
         }
     }
