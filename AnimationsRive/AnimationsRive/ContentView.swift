@@ -17,20 +17,29 @@ struct ContentView: View {
     let menuButton = RiveViewModel(fileName: "menu_button", stateMachineName: "State Machine", autoPlay: false)
     
     var body: some View {
+
         ZStack {
-            
-            switch selectedTab {
-            case .chat:
-                Text("chat")
-            case .search:
-                Text("search")
-            case .timer:
-                Text("timer")
-            case .bell:
-                Text("bell")
-            case .user:
-                Text("user")
+            Group {
+                switch selectedTab {
+                    
+                case .chat:
+                    HomeView()
+                case .search:
+                    Text("search")
+                case .timer:
+                    Text("timer")
+                case .bell:
+                    Text("bell")
+                case .user:
+                    Text("user")
+                }
+            }.safeAreaInset(edge: .bottom) {
+                Color.clear.frame(height: 80)
             }
+            .safeAreaInset(edge: .top) {
+                Color.clear.frame(height: 120)
+            }
+            .ignoresSafeArea()
             
             menuButtonView
             
@@ -41,7 +50,8 @@ struct ContentView: View {
     @ViewBuilder
     var menuButtonView: some View {
         
-        menuButton.view()            .frame(width: 54, height: 54)
+        menuButton.view()            
+            .frame(width: 54, height: 54)
             .mask(Circle())
             .shadow(color: Color("Shadow").opacity(0.2),
                     radius: 5, x: 0, y: 5)
