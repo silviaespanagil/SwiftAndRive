@@ -8,14 +8,26 @@
 import SwiftUI
 
 struct ContentView: View {
+    
+    @AppStorage("selectedTab") var selectedTab: Tab = .chat
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            
+            switch selectedTab {
+            case .chat:
+                Text("chat")
+            case .search:
+                Text("search")
+            case .timer:
+                Text("timer")
+            case .bell:
+                Text("bell")
+            case .user:
+                Text("user")
+            }
+            TabBar()
         }
-        .padding()
     }
 }
 
