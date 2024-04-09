@@ -10,7 +10,7 @@ import RiveRuntime
 
 struct TabBar: View {
     
-    @State var selectedTab: Tab = .chat
+    @AppStorage("selectedTab") var selectedTab: Tab = .chat
     
     var tabItems = [
         TabBarItem(icon: RiveViewModel(fileName: "icons", stateMachineName: "CHAT_Interactivity", artboardName: "CHAT"), tab: .chat),
