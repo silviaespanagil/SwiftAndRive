@@ -12,4 +12,5 @@ struct TabBarItem: Identifiable {
     
     let id = UUID()
     let icon: RiveViewModel
+    let tab: Tab
 }
