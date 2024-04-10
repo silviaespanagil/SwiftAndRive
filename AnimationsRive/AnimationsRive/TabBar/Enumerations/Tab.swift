@@ -9,7 +9,7 @@ import Foundation
 
 enum Tab: String {
     
-    case chat
+    case home
     case search
     case timer
     case bell
