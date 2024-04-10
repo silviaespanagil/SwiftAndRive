@@ -139,7 +139,7 @@ struct OnboardingView: View {
                         .foregroundColor(.black)
                         .background(.white)
                         .mask(Circle())
-                        .shadow(color: Color("shadow").opacity(0.3), radius: 5, x: 0, y: 3)
+                        .shadow(color: Color("Shadow").opacity(0.3), radius: 5, x: 0, y: 3)
                 }.frame(maxHeight: .infinity, alignment: .bottom))
     }
     
