@@ -10,6 +10,8 @@ import RiveRuntime
 
 struct OnboardingView: View {
     
+    @Binding var show: Bool
+    
     @State var showLoginModal: Bool = false
     
     let button = RiveViewModel(fileName: "button")
@@ -38,9 +40,16 @@ struct OnboardingView: View {
         
         VStack(alignment: .leading, spacing: 16) {
             
-            Spacer().frame(height: 40)
+            Spacer().frame(height: 30)
             
-            titleArea
+            HStack(alignment: .top) {
+                
+                titleArea
+                
+                Spacer()
+                
+                closeButton
+            }
             
             Spacer()
             
@@ -133,8 +142,27 @@ struct OnboardingView: View {
                         .shadow(color: Color("shadow").opacity(0.3), radius: 5, x: 0, y: 3)
                 }.frame(maxHeight: .infinity, alignment: .bottom))
     }
+    
+    @ViewBuilder
+    var closeButton: some View {
+        
+        Button {
+            withAnimation {
+                show.toggle()
+            }
+        } label: {
+            Image(systemName: "xmark")
+                .foregroundColor(.white)
+                .frame(width: 36, height: 36)
+                .background(.black)
+                .mask(Circle())
+                .shadow(color: .black.opacity(0.3), radius: 10, x: 0, y: 10)
+        }
+        .padding(20)
+        .offset(y: showLoginModal ? -200 : 0)
+    }
 }
 
 #Preview {
-    OnboardingView()
+    OnboardingView(show: .constant(true))
 }
